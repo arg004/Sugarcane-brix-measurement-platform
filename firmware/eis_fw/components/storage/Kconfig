@@ -1,0 +1,72 @@
+menu "App → Storage (microSD)"
+
+    comment "Fixed wiring (your board)"
+    config APP_SDMMC_CLK
+        int "SD CLK"
+        default 38
+    config APP_SDMMC_CMD
+        int "SD CMD (also SPI MOSI)"
+        default 37
+    config APP_SDMMC_D0
+        int "SD DAT0 (also SPI MISO)"
+        default 39
+    config APP_SDMMC_D1
+        int "SD DAT1"
+        default 40
+    config APP_SDMMC_D2
+        int "SD DAT2"
+        default 35
+    config APP_SDMMC_D3
+        int "SD DAT3 (also SPI CS)"
+        default 36
+
+    config APP_SDMMC_WIDTH_4BIT
+        bool "Use 4-bit SDMMC bus"
+        default y
+
+    config APP_SD_FORCE_SPI
+        bool "Force SPI mode (skip SDMMC)"
+        default n
+
+    config APP_SD_INTERNAL_PULLUPS
+        bool "Enable internal pull-ups on CMD/D0..D3 (dev aid)"
+        default y
+        help
+          Keep ON for dev boards without external 10k pull-ups.
+          CLK is never pulled up.
+
+    config APP_SD_SPI_HOST
+        int "SPI host (2=SPI2, 3=SPI3)"
+        range 2 3
+        default 2
+
+    config APP_SD_MAX_FILES
+        int "Max open files"
+        range 2 16
+        default 5
+
+
+    config APP_SD_MOUNT_POINT
+        string "Mount point"
+        default "/sd"
+        help
+            Path used when mounting the card.
+
+    config APP_SD_CD_GPIO
+        int "Card-detect GPIO"
+        default 41
+
+    config APP_SD_CD_ACTIVE_LOW
+        bool "CD is active low (0 = inserted)"
+        default y
+
+    config APP_SD_CD_DEBOUNCE_MS
+        int "Card-detect debounce (ms)"
+        range 10 1000
+        default 80
+
+    config APP_SD_AUTO_MOUNT
+        bool "Auto mount on insert / unmount on remove"
+        default y
+
+endmenu

@@ -1,0 +1,13 @@
+menu "App"
+    config APP_WIFI_SSID
+        string "Wi‑Fi SSID"
+        default "AGalib"
+    config APP_WIFI_PASS
+        string "Wi‑Fi Password"
+        default "12345678"
+    config APP_TIMEZONE
+        string "POSIX TZ string"
+        default "CST6CDT,M3.2.0/2,M11.1.0/2"
+        help
+            Example: US Central with DST rules.
+endmenu

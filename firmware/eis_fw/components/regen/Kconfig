@@ -1,0 +1,45 @@
+menu "App → Regeneration"
+    config APP_REGEN_GPIO_1
+        int "Regen GPIO for sensor 1 (-1 to disable)"
+        range -1 48
+        default 23
+    config APP_REGEN_GPIO_2
+        int "Regen GPIO for sensor 2 (-1 to disable)"
+        range -1 48
+        default 24
+    config APP_REGEN_GPIO_3
+        int "Regen GPIO for sensor 3 (-1 to disable)"
+        range -1 48
+        default 25
+
+    config APP_REGEN_ACTIVE_HIGH
+        bool "Regen output is active‑high (default: OFF)"
+        default n   # active‑LOW by default
+
+    config APP_REGEN_DEFAULT_MS
+        int "Pulse width (ms)"
+        range 50 600000
+        default 1000
+
+    config APP_REGEN_COOLDOWN_MS
+        int "Cooldown between jobs (ms)"
+        range 0 60000
+        default 5000
+
+    config APP_REGEN_WASH_ENABLE
+        bool "Enable DI water wash (all 3 pins simultaneously)"
+        default y
+
+    config APP_REGEN_WASH_MS
+        int "DI wash pulse width (ms)"
+        range 50 600000
+        default 1000
+
+    config APP_REGEN_TOPIC_PREFIX
+        string "MQTT topic prefix"
+        default "devices"
+
+    config APP_REGEN_MQTT_URI
+        string "MQTT broker URI (leave empty to reuse heartbeat URI, if set)"
+        default ""
+endmenu

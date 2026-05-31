@@ -1,0 +1,21 @@
+# firmware/components/telemetry/Kconfig  (new)
+menu "App → Telemetry"
+    config APP_HB_MQTT_URI
+        string "Heartbeat MQTT URI"
+        default "mqtt://test.mosquitto.org:1883"
+    config APP_HB_TOPIC_PREFIX
+        string "Heartbeat topic prefix"
+        default "devices"
+    config APP_HB_PERIOD_SEC
+        int "Heartbeat period (sec)"
+        range 5 86400
+        default 30
+    config APP_HB_QOS
+        int "Heartbeat QoS (0 or 1)"
+        range 0 1
+        default 0
+    config APP_HB_KEEPALIVE
+        int "MQTT keepalive (seconds)"
+        range 10 600
+        default 60
+endmenu

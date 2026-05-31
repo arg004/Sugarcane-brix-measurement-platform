@@ -1,0 +1,35 @@
+menu "Multiplexer (TMUX1109)"
+
+config APP_MUX_TMUX1109
+    bool "Enable TMUX1109 front-end multiplexers"
+    default y
+
+if APP_MUX_TMUX1109
+
+config APP_MUX1_A0_PIN
+    int "TMUX1 (CE/RE) A0 GPIO"
+    default 6
+
+config APP_MUX1_A1_PIN
+    int "TMUX1 (CE/RE) A1 GPIO"
+    default 7
+
+config APP_MUX2_A0_PIN
+    int "TMUX2 (WE) A0 GPIO"
+    default 4
+
+config APP_MUX2_A1_PIN
+    int "TMUX2 (WE) A1 GPIO"
+    default 5
+
+config APP_MUX_SAFE_SEL
+    int "Safe/default select code (0..3)"
+    range 0 3
+    default 3
+    help
+      Two-bit select code applied to both TMUXes at boot. 3 (=11b) is often
+      a spare channel you can leave unconnected to make a ‘no‑sensor’ state.
+
+endif # APP_MUX_TMUX1109
+
+endmenu

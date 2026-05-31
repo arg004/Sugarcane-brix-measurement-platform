@@ -1,0 +1,16 @@
+menu "Measurement"
+
+config APP_MEAS_TOPIC_PREFIX
+    string "MQTT topic prefix"
+    default "devices"
+
+config APP_MEAS_DATA_DIR
+    string "Data directory on SD"
+    default "/sd/data"
+
+config APP_MEAS_MAX_POINTS
+    int "Max synthetic points per job"
+    range 1 65535
+    default 1024
+
+endmenu

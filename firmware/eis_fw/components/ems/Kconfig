@@ -1,0 +1,25 @@
+menu "EmStat Pico (UART)"
+
+config APP_EMS_UART_NUM
+    int "UART port (0/1/2)"
+    range 0 2
+    default 1
+
+config APP_EMS_TX
+    int "EMS TX (ESP → EmStat RX)"
+    default 17
+
+config APP_EMS_RX
+    int "EMS RX (EmStat → ESP)"
+    default 18
+
+config APP_EMS_BAUD
+    int "Baudrate"
+    default 230400
+
+config EMS_PROBE_TIMEOUT_MS
+    int "EMS probe timeout (ms)"
+    range 50 5000
+    default 1000
+
+endmenu
